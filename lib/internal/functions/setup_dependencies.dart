@@ -1,6 +1,7 @@
 import 'package:test_mad_soft/data/api/api_client.dart';
 import 'package:test_mad_soft/data/repository/payload_repository_impl.dart';
 import 'package:test_mad_soft/domain/repository/paylod_repository.dart';
+import 'package:test_mad_soft/domain/state/complexes_store.dart';
 import 'package:test_mad_soft/internal/router/app_router.dart';
 import 'package:test_mad_soft/internal/utils/sl.dart';
 
@@ -18,5 +19,11 @@ Future<void> setupDependencies() async {
     () => PayloadRepositoryImpl(
       apiClient: sl.call(),
     ),
+  );
+  //store
+  sl.registerLazySingleton<ComplexesStore>(
+    () => ComplexesStore(
+      payloadRepository: sl.call(),
+    )..init(),
   );
 }
