@@ -7,6 +7,17 @@ class ObjectsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      body: ViewScreen(),
+    );
+  }
+}
+
+class ViewScreen extends StatelessWidget {
+  const ViewScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center();
   }
 }
