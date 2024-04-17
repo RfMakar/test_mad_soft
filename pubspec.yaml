@@ -20,6 +20,7 @@ dependencies:
   flutter_mobx: ^2.2.1+1
   flutter_svg: ^2.0.10+1
   zoom_widget: ^2.0.1
+  get_storage_info: ^0.1.0
 
 dev_dependencies:
   flutter_test:

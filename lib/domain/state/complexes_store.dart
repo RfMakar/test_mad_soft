@@ -13,6 +13,7 @@ abstract class _ComplexesStore with Store {
   }) : _payloadRepository = payloadRepository;
 
   final PayloadRepository _payloadRepository;
+
   Future<void> init() async {
     await _getComplexesList();
     isLoading = false;
