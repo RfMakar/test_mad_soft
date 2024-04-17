@@ -22,6 +22,9 @@ abstract class _ComplexesStore with Store {
   bool isLoading = true;
 
   @observable
+  int currentPageIndex = 0;
+
+  @observable
   ObservableList<Complex> complexes = ObservableList();
 
   Future<void> _getComplexesList() async {

@@ -25,6 +25,22 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
     });
   }
 
+  late final _$currentPageIndexAtom =
+      Atom(name: '_ComplexesStore.currentPageIndex', context: context);
+
+  @override
+  int get currentPageIndex {
+    _$currentPageIndexAtom.reportRead();
+    return super.currentPageIndex;
+  }
+
+  @override
+  set currentPageIndex(int value) {
+    _$currentPageIndexAtom.reportWrite(value, super.currentPageIndex, () {
+      super.currentPageIndex = value;
+    });
+  }
+
   late final _$complexesAtom =
       Atom(name: '_ComplexesStore.complexes', context: context);
 
@@ -45,6 +61,7 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
   String toString() {
     return '''
 isLoading: ${isLoading},
+currentPageIndex: ${currentPageIndex},
 complexes: ${complexes}
     ''';
   }

@@ -10,6 +10,7 @@ class Point with _$Point {
   const factory Point({
     required int x,
     required int y,
+    required String status,
   }) = _Point;
 
   factory Point.fromJson(Map<String, Object?> json) => _$PointFromJson(json);

@@ -32,7 +32,7 @@ class _RestClientApi implements RestClientApi {
     )
             .compose(
               _dio.options,
-              'https://json-parser.com/f5628f20.json',
+              'https://json-parser.com/f5628f20/4.json',
               queryParameters: queryParameters,
               data: _data,
             )

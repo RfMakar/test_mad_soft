@@ -22,6 +22,7 @@ Point _$PointFromJson(Map<String, dynamic> json) {
 mixin _$Point {
   int get x => throw _privateConstructorUsedError;
   int get y => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $PointCopyWith<$Res> {
   factory $PointCopyWith(Point value, $Res Function(Point) then) =
       _$PointCopyWithImpl<$Res, Point>;
   @useResult
-  $Res call({int x, int y});
+  $Res call({int x, int y, String status});
 }
 
 /// @nodoc
@@ -51,6 +52,7 @@ class _$PointCopyWithImpl<$Res, $Val extends Point>
   $Res call({
     Object? x = null,
     Object? y = null,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
       x: null == x
@@ -61,6 +63,10 @@ class _$PointCopyWithImpl<$Res, $Val extends Point>
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$PointImplCopyWith<$Res> implements $PointCopyWith<$Res> {
       __$$PointImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int x, int y});
+  $Res call({int x, int y, String status});
 }
 
 /// @nodoc
@@ -88,6 +94,7 @@ class __$$PointImplCopyWithImpl<$Res>
   $Res call({
     Object? x = null,
     Object? y = null,
+    Object? status = null,
   }) {
     return _then(_$PointImpl(
       x: null == x
@@ -98,6 +105,10 @@ class __$$PointImplCopyWithImpl<$Res>
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -105,7 +116,7 @@ class __$$PointImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PointImpl with DiagnosticableTreeMixin implements _Point {
-  const _$PointImpl({required this.x, required this.y});
+  const _$PointImpl({required this.x, required this.y, required this.status});
 
   factory _$PointImpl.fromJson(Map<String, dynamic> json) =>
       _$$PointImplFromJson(json);
@@ -114,10 +125,12 @@ class _$PointImpl with DiagnosticableTreeMixin implements _Point {
   final int x;
   @override
   final int y;
+  @override
+  final String status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Point(x: $x, y: $y)';
+    return 'Point(x: $x, y: $y, status: $status)';
   }
 
   @override
@@ -126,7 +139,8 @@ class _$PointImpl with DiagnosticableTreeMixin implements _Point {
     properties
       ..add(DiagnosticsProperty('type', 'Point'))
       ..add(DiagnosticsProperty('x', x))
-      ..add(DiagnosticsProperty('y', y));
+      ..add(DiagnosticsProperty('y', y))
+      ..add(DiagnosticsProperty('status', status));
   }
 
   @override
@@ -135,12 +149,13 @@ class _$PointImpl with DiagnosticableTreeMixin implements _Point {
         (other.runtimeType == runtimeType &&
             other is _$PointImpl &&
             (identical(other.x, x) || other.x == x) &&
-            (identical(other.y, y) || other.y == y));
+            (identical(other.y, y) || other.y == y) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, x, y);
+  int get hashCode => Object.hash(runtimeType, x, y, status);
 
   @JsonKey(ignore: true)
   @override
@@ -157,8 +172,10 @@ class _$PointImpl with DiagnosticableTreeMixin implements _Point {
 }
 
 abstract class _Point implements Point {
-  const factory _Point({required final int x, required final int y}) =
-      _$PointImpl;
+  const factory _Point(
+      {required final int x,
+      required final int y,
+      required final String status}) = _$PointImpl;
 
   factory _Point.fromJson(Map<String, dynamic> json) = _$PointImpl.fromJson;
 
@@ -166,6 +183,8 @@ abstract class _Point implements Point {
   int get x;
   @override
   int get y;
+  @override
+  String get status;
   @override
   @JsonKey(ignore: true)
   _$$PointImplCopyWith<_$PointImpl> get copyWith =>
