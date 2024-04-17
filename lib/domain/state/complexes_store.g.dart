@@ -41,6 +41,22 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
     });
   }
 
+  late final _$isSearchAtom =
+      Atom(name: '_ComplexesStore.isSearch', context: context);
+
+  @override
+  bool get isSearch {
+    _$isSearchAtom.reportRead();
+    return super.isSearch;
+  }
+
+  @override
+  set isSearch(bool value) {
+    _$isSearchAtom.reportWrite(value, super.isSearch, () {
+      super.isSearch = value;
+    });
+  }
+
   late final _$complexesAtom =
       Atom(name: '_ComplexesStore.complexes', context: context);
 
@@ -57,12 +73,44 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
     });
   }
 
+  late final _$complexesSearchAtom =
+      Atom(name: '_ComplexesStore.complexesSearch', context: context);
+
+  @override
+  ObservableList<Complex> get complexesSearch {
+    _$complexesSearchAtom.reportRead();
+    return super.complexesSearch;
+  }
+
+  @override
+  set complexesSearch(ObservableList<Complex> value) {
+    _$complexesSearchAtom.reportWrite(value, super.complexesSearch, () {
+      super.complexesSearch = value;
+    });
+  }
+
+  late final _$_ComplexesStoreActionController =
+      ActionController(name: '_ComplexesStore', context: context);
+
+  @override
+  void searchComplex(String titleComplex) {
+    final _$actionInfo = _$_ComplexesStoreActionController.startAction(
+        name: '_ComplexesStore.searchComplex');
+    try {
+      return super.searchComplex(titleComplex);
+    } finally {
+      _$_ComplexesStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 isLoading: ${isLoading},
 currentPageIndex: ${currentPageIndex},
-complexes: ${complexes}
+isSearch: ${isSearch},
+complexes: ${complexes},
+complexesSearch: ${complexesSearch}
     ''';
   }
 }

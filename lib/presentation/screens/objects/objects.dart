@@ -69,13 +69,24 @@ class SliverListWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ...store.complexes.map(
-                (complex) => ComplexCard(complex: complex),
-              ),
-            ],
+          child: Observer(
+            builder: (_) => store.isSearch
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ...store.complexesSearch.toList().map(
+                            (complex) => ComplexCard(complex: complex),
+                          ),
+                    ],
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ...store.complexes.toList().map(
+                            (complex) => ComplexCard(complex: complex),
+                          ),
+                    ],
+                  ),
           ),
         ),
       ],

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_mad_soft/domain/state/complexes_store.dart';
 import 'package:test_mad_soft/internal/UI/app_assets.dart';
 import 'package:test_mad_soft/internal/UI/app_colors.dart';
 import 'package:test_mad_soft/internal/UI/app_text_style.dart';
+import 'package:test_mad_soft/internal/utils/sl.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
   const SliverAppBarWidget({super.key});
@@ -37,7 +39,7 @@ class SliverAppBarWidget extends StatelessWidget {
           floating: false,
           pinned: true,
           snap: false,
-          flexibleSpace: FlexibleSpaceBarWidget(),
+          flexibleSpace: const FlexibleSpaceBarWidget(),
         );
       },
     );
@@ -49,6 +51,7 @@ class FlexibleSpaceBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = sl<ComplexesStore>();
     return FlexibleSpaceBar(
       background: Container(
         color: AppColors.hexEEF2FF,
@@ -87,7 +90,7 @@ class FlexibleSpaceBarWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                  onFieldSubmitted: (String value) {},
+                  onChanged: store.searchComplex,
                 ),
               ),
             ],

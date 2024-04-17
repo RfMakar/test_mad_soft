@@ -25,7 +25,13 @@ abstract class _ComplexesStore with Store {
   int currentPageIndex = 0;
 
   @observable
+  bool isSearch = false;
+
+  @observable
   ObservableList<Complex> complexes = ObservableList();
+
+  @observable
+  ObservableList<Complex> complexesSearch = ObservableList();
 
   Future<void> _getComplexesList() async {
     final res = await _payloadRepository.getPayload();
@@ -34,5 +40,22 @@ abstract class _ComplexesStore with Store {
     } else {
       print(res.message);
     }
+  }
+
+  @action
+  void searchComplex(String titleComplex) {
+    if (titleComplex.isEmpty) {
+      isSearch = false;
+    } else {
+      isSearch = true;
+    }
+    final listSearch = complexes
+        .where(
+          (element) => element.title.toUpperCase().contains(
+                titleComplex.toUpperCase(),
+              ),
+        )
+        .toList();
+    complexesSearch = ObservableList.of(listSearch);
   }
 }
