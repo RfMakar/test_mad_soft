@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_mad_soft/data/models/complex/complex.dart';
 import 'package:test_mad_soft/internal/UI/app_text_style.dart';
+import 'package:test_mad_soft/internal/router/app_router.dart';
+import 'package:test_mad_soft/internal/utils/sl.dart';
 import 'package:test_mad_soft/presentation/widgets/card_app.dart';
 
 class ComplexCard extends StatelessWidget {
@@ -8,7 +10,9 @@ class ComplexCard extends StatelessWidget {
   final Complex complex;
   @override
   Widget build(BuildContext context) {
+    final appRouter = sl<AppRouter>();
     return CardApp(
+      onTap: () => appRouter.push(ObjectDiagramRoute(complex: complex)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,6 +26,7 @@ class ComplexCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
+                flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -46,6 +51,7 @@ class ComplexCard extends StatelessWidget {
                 ),
               ),
               Expanded(
+                flex: 4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -73,7 +79,6 @@ class ComplexCard extends StatelessWidget {
           )
         ],
       ),
-      onTap: () {},
     );
   }
 }
