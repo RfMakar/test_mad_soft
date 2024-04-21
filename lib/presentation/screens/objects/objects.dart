@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:test_mad_soft/domain/state/complexes_store.dart';
-import 'package:test_mad_soft/internal/UI/app_colors.dart';
-import 'package:test_mad_soft/internal/utils/sl.dart';
+import 'package:test_mad_soft/presentation/state/complexes_store.dart';
+import 'package:test_mad_soft/config/UI/app_colors.dart';
+import 'package:test_mad_soft/initialize_dependencie.dart';
 import 'package:test_mad_soft/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:test_mad_soft/presentation/widgets/complex_card.dart';
 import 'package:test_mad_soft/presentation/widgets/sliver_app_bar.dart';
@@ -15,6 +15,7 @@ class ObjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = sl<ComplexesStore>();
+
     return Scaffold(
       bottomNavigationBar: const BottomNavigationBarApp(),
       backgroundColor: AppColors.hexEEF2FF,
@@ -46,6 +47,7 @@ class ViewNavigatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = sl<ComplexesStore>();
+    print(store.complexes.first.runtimeType);
     return Observer(builder: (_) {
       if (store.currentPageIndex == 1) {
         return const SliverListWidget();
@@ -75,7 +77,7 @@ class SliverListWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ...store.complexesSearch.toList().map(
-                            (complex) => ComplexCard(complex: complex),
+                            (complex) => ComplexCard(complexEntity: complex),
                           ),
                     ],
                   )
@@ -83,7 +85,7 @@ class SliverListWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ...store.complexes.toList().map(
-                            (complex) => ComplexCard(complex: complex),
+                            (complex) => ComplexCard(complexEntity: complex),
                           ),
                     ],
                   ),

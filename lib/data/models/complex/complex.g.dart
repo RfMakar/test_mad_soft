@@ -6,17 +6,16 @@ part of 'complex.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ComplexImpl _$$ComplexImplFromJson(Map<String, dynamic> json) =>
-    _$ComplexImpl(
+ComplexModel _$ComplexModelFromJson(Map<String, dynamic> json) => ComplexModel(
       title: json['title'] as String,
       remainingPoints: json['remaining_points'] as int,
       totalPointsCount: json['total_points_count'] as int,
       points: (json['points'] as List<dynamic>)
-          .map((e) => Point.fromJson(e as Map<String, dynamic>))
+          .map((e) => PointModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$ComplexImplToJson(_$ComplexImpl instance) =>
+Map<String, dynamic> _$ComplexModelToJson(ComplexModel instance) =>
     <String, dynamic>{
       'title': instance.title,
       'remaining_points': instance.remainingPoints,

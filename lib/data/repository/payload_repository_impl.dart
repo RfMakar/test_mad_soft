@@ -1,20 +1,19 @@
-import 'package:test_mad_soft/data/api/api_client.dart';
-import 'package:test_mad_soft/data/api/rest_client_api.dart';
+import 'package:test_mad_soft/core/safe_api_call/safe_api_call.dart';
+import 'package:test_mad_soft/data/data_sources/rest_client.dart';
 import 'package:test_mad_soft/data/models/payload/payload.dart';
-import 'package:test_mad_soft/domain/entities/api_response.dart';
+import 'package:test_mad_soft/core/resources/data_state.dart';
 import 'package:test_mad_soft/domain/repository/paylod_repository.dart';
 
 class PayloadRepositoryImpl implements PayloadRepository {
-  PayloadRepositoryImpl({
-    required ApiClient apiClient,
-  }) : _apiClient = apiClient;
+  final RestClient _apiService;
 
-  final ApiClient _apiClient;
-  RestClientApi get _restClient => _apiClient.restClient;
+  PayloadRepositoryImpl({
+    required RestClient restClient,
+  }) : _apiService = restClient;
 
   @override
-  Future<ApiResponse<Payload>> getPayload() async {
-    final apiToBeCalled = _restClient.getPayload();
-    return await _apiClient.safeApiCall(apiToBeCalled);
+  Future<DataState<PayLoadModel>> getPayload() async {
+    final apiToBeCalled = _apiService.getPayload();
+    return await safeApiCall(apiToBeCalled);
   }
 }

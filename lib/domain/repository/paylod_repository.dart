@@ -1,6 +1,6 @@
-import 'package:test_mad_soft/data/models/payload/payload.dart';
-import 'package:test_mad_soft/domain/entities/api_response.dart';
+import 'package:test_mad_soft/core/resources/data_state.dart';
+import 'package:test_mad_soft/domain/entities/payload.dart';
 
 abstract class PayloadRepository {
-  Future<ApiResponse<Payload>> getPayload();
+  Future<DataState<PayloadEntity>> getPayload();
 }

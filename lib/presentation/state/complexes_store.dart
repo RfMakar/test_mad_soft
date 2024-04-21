@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import 'package:test_mad_soft/data/models/complex/complex.dart';
-import 'package:test_mad_soft/domain/repository/paylod_repository.dart';
+import 'package:test_mad_soft/domain/entities/complex.dart';
+import 'package:test_mad_soft/domain/usecases/get_payload.dart';
 
 part 'complexes_store.g.dart';
 
@@ -9,10 +9,10 @@ class ComplexesStore = _ComplexesStore with _$ComplexesStore;
 
 abstract class _ComplexesStore with Store {
   _ComplexesStore({
-    required PayloadRepository payloadRepository,
-  }) : _payloadRepository = payloadRepository;
+    required GetPayLoadUseCase getPayLoadUseCase,
+  }) : _getPayLoadUseCase = getPayLoadUseCase;
 
-  final PayloadRepository _payloadRepository;
+  final GetPayLoadUseCase _getPayLoadUseCase;
 
   Future<void> init() async {
     await _getComplexesList();
@@ -29,13 +29,13 @@ abstract class _ComplexesStore with Store {
   bool isSearch = false;
 
   @observable
-  ObservableList<Complex> complexes = ObservableList();
+  ObservableList<ComplexEntity> complexes = ObservableList();
 
   @observable
-  ObservableList<Complex> complexesSearch = ObservableList();
+  ObservableList<ComplexEntity> complexesSearch = ObservableList();
 
   Future<void> _getComplexesList() async {
-    final res = await _payloadRepository.getPayload();
+    final res = await _getPayLoadUseCase.call();
     if (res.success) {
       complexes.addAll(res.data!.payload);
     } else {

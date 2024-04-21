@@ -6,13 +6,13 @@ part of 'point.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PointImpl _$$PointImplFromJson(Map<String, dynamic> json) => _$PointImpl(
+PointModel _$PointModelFromJson(Map<String, dynamic> json) => PointModel(
       x: json['x'] as int,
       y: json['y'] as int,
       status: json['status'] as String,
     );
 
-Map<String, dynamic> _$$PointImplToJson(_$PointImpl instance) =>
+Map<String, dynamic> _$PointModelToJson(PointModel instance) =>
     <String, dynamic>{
       'x': instance.x,
       'y': instance.y,

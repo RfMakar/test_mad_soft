@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:test_mad_soft/data/models/complex/complex.dart';
+import 'package:test_mad_soft/domain/entities/complex.dart';
 import 'package:test_mad_soft/presentation/screens/object_diagram/object_diagram.dart';
 import 'package:test_mad_soft/presentation/screens/objects/objects.dart';
 

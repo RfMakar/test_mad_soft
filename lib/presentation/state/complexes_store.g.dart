@@ -61,13 +61,13 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
       Atom(name: '_ComplexesStore.complexes', context: context);
 
   @override
-  ObservableList<Complex> get complexes {
+  ObservableList<ComplexEntity> get complexes {
     _$complexesAtom.reportRead();
     return super.complexes;
   }
 
   @override
-  set complexes(ObservableList<Complex> value) {
+  set complexes(ObservableList<ComplexEntity> value) {
     _$complexesAtom.reportWrite(value, super.complexes, () {
       super.complexes = value;
     });
@@ -77,13 +77,13 @@ mixin _$ComplexesStore on _ComplexesStore, Store {
       Atom(name: '_ComplexesStore.complexesSearch', context: context);
 
   @override
-  ObservableList<Complex> get complexesSearch {
+  ObservableList<ComplexEntity> get complexesSearch {
     _$complexesSearchAtom.reportRead();
     return super.complexesSearch;
   }
 
   @override
-  set complexesSearch(ObservableList<Complex> value) {
+  set complexesSearch(ObservableList<ComplexEntity> value) {
     _$complexesSearchAtom.reportWrite(value, super.complexesSearch, () {
       super.complexesSearch = value;
     });

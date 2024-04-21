@@ -10,7 +10,7 @@ part of 'storage_info_service_store.dart';
 
 mixin _$StorageInfoServiceStore on _StorageInfoServiceStore, Store {
   late final _$isLoadingAtom =
-      Atom(name: '_ServiceStore.isLoading', context: context);
+      Atom(name: '_StorageInfoServiceStore.isLoading', context: context);
 
   @override
   bool get isLoading {
@@ -26,7 +26,7 @@ mixin _$StorageInfoServiceStore on _StorageInfoServiceStore, Store {
   }
 
   late final _$totalMemoryAtom =
-      Atom(name: '_ServiceStore.totalMemory', context: context);
+      Atom(name: '_StorageInfoServiceStore.totalMemory', context: context);
 
   @override
   int get totalMemory {
@@ -42,7 +42,7 @@ mixin _$StorageInfoServiceStore on _StorageInfoServiceStore, Store {
   }
 
   late final _$_getMemoryAsyncAction =
-      AsyncAction('_ServiceStore._getMemory', context: context);
+      AsyncAction('_StorageInfoServiceStore._getMemory', context: context);
 
   @override
   Future<void> _getMemory() {

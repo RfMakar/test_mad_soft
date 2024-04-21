@@ -1,17 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test_mad_soft/data/models/complex/complex.dart';
-
-part 'payload.freezed.dart';
+import 'package:test_mad_soft/domain/entities/payload.dart';
 
 part 'payload.g.dart';
 
-@freezed
-class Payload with _$Payload {
-  const factory Payload({
-    required List<Complex> payload,
-  }) = _Payload;
+@JsonSerializable(fieldRename: FieldRename.snake)
+class PayLoadModel extends PayloadEntity {
+  final List<ComplexModel> payload;
+  const PayLoadModel({
+    required this.payload,
+  }) : super(
+          payload: payload,
+        );
 
-  factory Payload.fromJson(Map<String, Object?> json) =>
-      _$PayloadFromJson(json);
+  factory PayLoadModel.fromJson(Map<String, dynamic> json) =>
+      _$PayLoadModelFromJson(json);
 }

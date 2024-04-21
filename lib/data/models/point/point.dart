@@ -1,17 +1,15 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
-
-part 'point.freezed.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:test_mad_soft/domain/entities/point.dart';
 
 part 'point.g.dart';
 
-@freezed
-class Point with _$Point {
-  const factory Point({
-    required int x,
-    required int y,
-    required String status,
-  }) = _Point;
-
-  factory Point.fromJson(Map<String, Object?> json) => _$PointFromJson(json);
+@JsonSerializable(fieldRename: FieldRename.snake)
+class PointModel extends PointEntity {
+  const PointModel({
+    required super.x,
+    required super.y,
+    required super.status,
+  });
+  factory PointModel.fromJson(Map<String, dynamic> json) =>
+      _$PointModelFromJson(json);
 }

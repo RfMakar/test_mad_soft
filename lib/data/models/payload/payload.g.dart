@@ -6,14 +6,13 @@ part of 'payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PayloadImpl _$$PayloadImplFromJson(Map<String, dynamic> json) =>
-    _$PayloadImpl(
+PayLoadModel _$PayLoadModelFromJson(Map<String, dynamic> json) => PayLoadModel(
       payload: (json['payload'] as List<dynamic>)
-          .map((e) => Complex.fromJson(e as Map<String, dynamic>))
+          .map((e) => ComplexModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$PayloadImplToJson(_$PayloadImpl instance) =>
+Map<String, dynamic> _$PayLoadModelToJson(PayLoadModel instance) =>
     <String, dynamic>{
       'payload': instance.payload,
     };

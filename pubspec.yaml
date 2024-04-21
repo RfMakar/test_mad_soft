@@ -21,6 +21,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   zoom_widget: ^2.0.1
   get_storage_info: ^0.1.0
+  equatable: ^2.0.5
+  json_serializable: ^6.7.1
 
 dev_dependencies:
   flutter_test:

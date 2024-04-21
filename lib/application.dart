@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_mad_soft/internal/UI/app_theme.dart';
-import 'package:test_mad_soft/internal/router/app_router.dart';
-import 'package:test_mad_soft/internal/utils/sl.dart';
+import 'package:test_mad_soft/config/theme/app_themes.dart';
+import 'package:test_mad_soft/config/router/app_router.dart';
+import 'package:test_mad_soft/initialize_dependencie.dart';
 
 class Application extends StatelessWidget {
   const Application({super.key});

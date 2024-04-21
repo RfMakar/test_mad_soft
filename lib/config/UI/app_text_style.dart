@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_mad_soft/internal/UI/app_colors.dart';
+import 'package:test_mad_soft/config/UI/app_colors.dart';
 
 class AppTextStyles {
   static TextStyle s11w500h6B6C6C = TextStyle(

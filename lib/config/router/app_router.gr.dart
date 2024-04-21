@@ -21,7 +21,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: ObjectDiagramScreen(
           key: args.key,
-          complex: args.complex,
+          complexEntity: args.complexEntity,
         ),
       );
     },
@@ -39,13 +39,13 @@ abstract class _$AppRouter extends RootStackRouter {
 class ObjectDiagramRoute extends PageRouteInfo<ObjectDiagramRouteArgs> {
   ObjectDiagramRoute({
     Key? key,
-    required Complex complex,
+    required ComplexEntity complexEntity,
     List<PageRouteInfo>? children,
   }) : super(
           ObjectDiagramRoute.name,
           args: ObjectDiagramRouteArgs(
             key: key,
-            complex: complex,
+            complexEntity: complexEntity,
           ),
           initialChildren: children,
         );
@@ -59,16 +59,16 @@ class ObjectDiagramRoute extends PageRouteInfo<ObjectDiagramRouteArgs> {
 class ObjectDiagramRouteArgs {
   const ObjectDiagramRouteArgs({
     this.key,
-    required this.complex,
+    required this.complexEntity,
   });
 
   final Key? key;
 
-  final Complex complex;
+  final ComplexEntity complexEntity;
 
   @override
   String toString() {
-    return 'ObjectDiagramRouteArgs{key: $key, complex: $complex}';
+    return 'ObjectDiagramRouteArgs{key: $key, complexEntity: $complexEntity}';
   }
 }
 
